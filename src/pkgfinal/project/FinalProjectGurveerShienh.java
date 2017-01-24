@@ -1,8 +1,13 @@
 package pkgfinal.project;
 
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Random;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
@@ -12,7 +17,7 @@ import javax.swing.JFrame;
  */
 
 
-public class FinalProjectGurveerShienh extends JComponent{
+public class FinalProjectGurveerShienh extends JComponent implements KeyListener{
 
     // Height and Width of our game
     static final int WIDTH = 800;
@@ -23,6 +28,42 @@ public class FinalProjectGurveerShienh extends JComponent{
     long desiredFPS = 60;
     long desiredTime = (1000)/desiredFPS;
     
+    //environment variables
+    
+    Color skyColour = new Color(175, 190, 214);
+    Color groundColour = new Color(100,100,100);
+    
+    //rock visuals
+    
+    Color rainColour = new Color (9, 52, 122);
+    int rainLength = 40;
+    int rainThickness = 40;
+    
+    //rain array
+    
+   
+   
+    
+    //rain speed
+    
+    
+    
+   
+    //entity variables
+    
+    Rectangle dude = new Rectangle(400, 400, 50, 50);
+    Color skin = new Color(189, 115, 75);
+    
+    //start & end variables
+    boolean start = false;
+    
+    //movement variables
+    boolean jump = false;
+    int jumpVelocity = 5;
+   
+    
+    //gravity 
+    int gravity = 1;
 
     
     // drawing of the game happens in here
@@ -36,25 +77,56 @@ public class FinalProjectGurveerShienh extends JComponent{
         
         // GAME DRAWING GOES HERE 
         
+        //change sky colour
+        
+        g.setColor(skyColour);
+        g.fillRect(0, 0, WIDTH, HEIGHT);
+        
+        //create ground
+        
+        g.setColor(groundColour);
+        g.fillRect(0, 450, WIDTH, 150);
+        
+        //create player
+        
+        g.setColor(skin);
+        g.fillRect(dude.x, dude.y, dude.width, dude.height);
+        
+        //create rain
+        
+     
         
         // GAME DRAWING ENDS HERE
-    }
     
+    
+   
     
     // The main game loop
     // In here is where all the logic for my game will go
-    public void run()
-    {
+    public void run(){
+
+
         // Used to keep track of time used to draw and update the game
         // This is used to limit the framerate later on
         long startTime;
         long deltaTime;
         
+        
+        Random randGen = new Random();
+        //generate random X position for rain
+        int rainY = 900;
+         for (int i = 0; i < rainLength; i++) {
+             //generate random X position for rain
+             int rainX = randGen.nextInt();
+             rain[i] = new Rectangle(rainX, rainY, rainThickness, rainLength);
+         }
+        
+        
         // the main game loop section
         // game will end if you set done = false;
         boolean done = false; 
-        while(!done)
-        {
+        while(!done){
+
             // determines when we started so we can keep a framerate
             startTime = System.currentTimeMillis();
             
@@ -62,7 +134,6 @@ public class FinalProjectGurveerShienh extends JComponent{
             // GAME LOGIC STARTS HERE 
             
             
-
             // GAME LOGIC ENDS HERE 
             
             // update the drawing (calls paintComponent)
@@ -86,7 +157,9 @@ public class FinalProjectGurveerShienh extends JComponent{
             }catch(Exception e){};
         }
     }
-    
+
+
+
     /**
      * @param args the command line arguments
      */
@@ -107,8 +180,30 @@ public class FinalProjectGurveerShienh extends JComponent{
         frame.pack();
         // shows the window to the user
         frame.setVisible(true);
-        
+        frame.addKeyListener(game);
         // starts my game loop
         game.run();
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        int key = e.getKeyCode();
+        if (key == KeyEvent.VK_ENTER) {
+            start = true;
+        }
+            if (key == KeyEvent.VK_SPACE) {
+            jump = true;
+        }
+        
+         
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
     }
 }
