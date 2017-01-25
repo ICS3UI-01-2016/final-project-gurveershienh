@@ -45,12 +45,12 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
      Rectangle monster8 = new Rectangle(5500, 390, 20, 60);
      Rectangle monster9 = new Rectangle(6000, 330, 180, 120);
      Rectangle monster10 = new Rectangle(6400, 380, 100, 70);
-     Rectangle monster11 = new Rectangle(7400, 370, 15, 80);
-     Rectangle monster12 = new Rectangle(8500, 360, 40, 90);
-     Rectangle monster13 = new Rectangle(9000, 350, 80, 100);
-     Rectangle monster14 = new Rectangle(9700, 410, 100, 40);
-     Rectangle monster15 = new Rectangle(10000, 310, 150, 140);
-     Rectangle monster16 = new Rectangle(10800, 390, 60, 60);
+     Rectangle monster11 = new Rectangle(6800, 370, 15, 80);
+     Rectangle monster12 = new Rectangle(7100, 360, 40, 90);
+     Rectangle monster13 = new Rectangle(7600, 350, 80, 100);
+     Rectangle monster14 = new Rectangle(8000, 410, 100, 40);
+     Rectangle monster15 = new Rectangle(8250, 310, 150, 140);
+     Rectangle monster16 = new Rectangle(8750, 390, 60, 60);
  
     
     
@@ -64,6 +64,8 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
     //start & end variables
     
     boolean start = false;
+    boolean dead = false;
+    
     
     //movement variables
     
@@ -199,79 +201,64 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
             monster16.x = monster16.x + gameSpeed;
             
             //loop monster spawning
-            
-            if(monster1.x == 150){
-               monster1.x = 11000;
-                
+            if(monster1.x < -200){
+                monster1 = new Rectangle (9000, monster1.y, monster1.width, monster1.height);
             }
-            if(monster2.x == -300){
-               monster2.x = 11000;
-                
+            if(monster2.x < -200){
+                monster2 = new Rectangle (9000, monster2.y, monster2.width, monster2.height);
             }
-            if(monster3.x == -300){
-               monster3.x = 11000;
-                
+            if(monster3.x < -200){
+                monster3 = new Rectangle (9000, monster3.y, monster3.width, monster3.height);
             }
-            if(monster4.x == -300){
-               monster4.x = 11000;
-                
+            if(monster4.x < -200){
+                monster4 = new Rectangle (9000, monster4.y, monster4.width, monster4.height);
             }
-            if(monster5.x == -300){
-               monster5.x = 11000;
-                
+            if(monster5.x < -200){
+                monster5 = new Rectangle (9000, monster5.y, monster5.width, monster5.height);
             }
-            if(monster6.x == -300){
-               monster6.x = 11000;
-                
+            if(monster6.x < -200){
+                monster6 = new Rectangle (9000, monster6.y, monster6.width, monster6.height);
             }
-            if(monster7.x == -300){
-               monster7.x = 11000;
-                
+            if(monster7.x < -200){
+                monster7 = new Rectangle (9000, monster7.y, monster7.width, monster7.height);
             }
-            if(monster8.x == -300){
-               monster8.x = 11000;
-                
+            if(monster8.x < -200){
+                monster8 = new Rectangle (9000, monster8.y, monster8.width, monster8.height);
             }
-            if(monster9.x == -300){
-               monster9.x = 11000;
-                
+            if(monster9.x < -200){
+                monster9 = new Rectangle (9000, monster9.y, monster9.width, monster9.height);
             }
-            if(monster10.x == -300){
-               monster10.x = 11000;
-                
+            if(monster10.x < -200){
+                monster10 = new Rectangle (9000, monster10.y, monster10.width, monster10.height);
             }
-            if(monster11.x == -300){
-               monster11.x = 11000;
-                
+            if(monster11.x < -200){
+                monster11 = new Rectangle (9000, monster11.y, monster11.width, monster11.height);
+            }
+            if(monster12.x < -200){
+                monster12 = new Rectangle (9000, monster12.y, monster12.width, monster12.height);
             }
             
-            if(monster13.x == -300){
-               monster13.x = 11000;
-                
+            if(monster13.x < -200){
+                monster13 = new Rectangle (9000, monster13.y, monster13.width, monster13.height);
             }
-            if(monster14.x == -300){
-               monster14.x = 11000;
-                
+            if(monster14.x < -200){
+                monster14 = new Rectangle (9000, monster14.y, monster14.width, monster14.height);
             }
-            if(monster15.x == -300){
-               monster15.x = 11000;
-                
+            if(monster15.x < -200){
+                monster15 = new Rectangle (9000, monster15.y, monster15.width, monster15.height);
             }
-            if(monster16.x == -300){
-               monster16.x = 11000;
-                
+            if(monster16.x < -200){
+                monster16 = new Rectangle (9000, monster16.y, monster16.width, monster16.height);
             }
             
             //hit detection
-            if (dude.x == (monster1.x - hitboxX)) {
-                        
-                            done = true;
-                        
-            }
-            
-            if(dude.x == monster1.x){
+            if (dude.x == monster1.x && dude.y == monster1.y) {
                 done = true;
-            }
+            }       
+                        
+            
+            
+            
             
             //create gravity 
             
