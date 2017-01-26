@@ -67,7 +67,6 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
     boolean restart = false;
     
     
-    
     //movement variables
     
     boolean jump = false;
@@ -148,7 +147,7 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
     }
     public void reset(){ 
     
-        if(restart){ }
+        if(restart){
             
             //reset dude position
             
@@ -200,7 +199,7 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
         // game will end if you set done = false;
         boolean done = false;
         if(done){
-            startOver = true;
+            restart = true;
         }
         while(!done){
 
