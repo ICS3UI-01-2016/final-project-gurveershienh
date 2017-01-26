@@ -38,7 +38,7 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
     Rectangle monster5 = new Rectangle(3600, 375, 80, 75);
     Rectangle monster6 = new Rectangle(4200, 350, 120, 100);
     Rectangle monster7 = new Rectangle(4800, 340, 150, 110);
-    Rectangle monster8 = new Rectangle(5500, 390, 100, 80);
+    Rectangle monster8 = new Rectangle(5500, 350, 100, 80);
     Rectangle monster9 = new Rectangle(6000, 330, 180, 120);
     Rectangle monster10 = new Rectangle(6400, 380, 100, 70);
     Rectangle monster11 = new Rectangle(6800, 370, 100, 80);
