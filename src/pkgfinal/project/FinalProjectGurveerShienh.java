@@ -38,19 +38,19 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
      Rectangle monster1 = new Rectangle(1000, 370, 80, 80);
      Rectangle monster2 = new Rectangle(1500, 330, 100, 120);
      Rectangle monster3 = new Rectangle(2100, 370, 50, 80);
-     Rectangle monster4 = new Rectangle(2500, 390, 40, 60);
+     Rectangle monster4 = new Rectangle(2500, 390, 100, 60);
      Rectangle monster5 = new Rectangle(3600, 375, 80, 75);
      Rectangle monster6 = new Rectangle(4200, 350, 120, 100);
      Rectangle monster7 = new Rectangle(4800, 340, 150, 110);
      Rectangle monster8 = new Rectangle(5500, 390, 20, 60);
      Rectangle monster9 = new Rectangle(6000, 330, 180, 120);
      Rectangle monster10 = new Rectangle(6400, 380, 100, 70);
-     Rectangle monster11 = new Rectangle(6800, 370, 15, 80);
-     Rectangle monster12 = new Rectangle(7100, 360, 40, 90);
+     Rectangle monster11 = new Rectangle(6800, 370, 100, 80);
+     Rectangle monster12 = new Rectangle(7100, 360, 80, 90);
      Rectangle monster13 = new Rectangle(7600, 350, 80, 100);
      Rectangle monster14 = new Rectangle(8000, 410, 100, 40);
      Rectangle monster15 = new Rectangle(8250, 310, 150, 140);
-     Rectangle monster16 = new Rectangle(8750, 390, 60, 60);
+     Rectangle monster16 = new Rectangle(8750, 390, 80, 60);
  
     
     
@@ -64,18 +64,19 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
     //start & end variables
     
     boolean start = false;
-    boolean dead = false;
+    boolean restart = false;
+    
     
     
     //movement variables
     
     boolean jump = false;
-    int jumpVelocity = -25;
+    int jumpVelocity = -200;
    
     
     //gravity 
     
-    int gravity = 7;
+    int gravity = 5;
     
     //monster speed
     
@@ -111,14 +112,7 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
         g.setColor(groundColour);
         g.fillRect(0, 450, WIDTH, 150);
         
-        //create player
         
-        g.setColor(skin);
-        g.fillRect(dude.x, dude.y, dude.width, dude.height);
-        
-       
-        
-       
         //color monsters
         
         g.setColor(Color.BLACK);
@@ -145,15 +139,47 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
         g.fillRect(monster11.x, monster11.y, monster11.width, monster11.height);
         g.fillRect(monster15.x, monster15.y, monster15.width, monster15.height);
         
-        
-           
-        
-     
-        
+        //create player
+        g.setColor(skin);
+        g.fillRect(dude.x, dude.y, dude.width, dude.height); 
         // GAME DRAWING ENDS HERE
     
     
     }
+    public void reset(){ 
+    
+        if(restart){ }
+            
+            //reset dude position
+            
+            dude = new Rectangle(150, 400, 50, 50);
+            
+            //reset monsters
+            
+            Rectangle monster1 = new Rectangle(1000, 370, 80, 80);
+            monster2 = new Rectangle(1500, 330, 100, 120);
+            monster3 = new Rectangle(2100, 370, 50, 80);
+            monster4 = new Rectangle(2500, 390, 100, 60);
+            monster5 = new Rectangle(3600, 375, 80, 75);
+            monster6 = new Rectangle(4200, 350, 120, 100);
+            monster7 = new Rectangle(4800, 340, 150, 110);
+            monster8 = new Rectangle(5500, 390, 20, 60);
+            monster9 = new Rectangle(6000, 330, 180, 120);
+            monster10 = new Rectangle(6400, 380, 100, 70);
+            monster11 = new Rectangle(6800, 370, 100, 80);
+            monster12 = new Rectangle(7100, 360, 80, 90);
+            monster13 = new Rectangle(7600, 350, 80, 100);
+            monster14 = new Rectangle(8000, 410, 100, 40);
+            monster15 = new Rectangle(8250, 310, 150, 140);
+            monster16 = new Rectangle(8750, 390, 80, 60);
+            
+            
+            
+            
+        }
+        
+        
+        }
     
     // The main game loop
     // In here is where all the logic for my game will go
@@ -172,7 +198,10 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
         
         // the main game loop section
         // game will end if you set done = false;
-        boolean done = false; 
+        boolean done = false;
+        if(done){
+            startOver = true;
+        }
         while(!done){
 
             // determines when we started so we can keep a framerate
@@ -252,10 +281,60 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
             }
             
             //hit detection
-            if (dude.x == monster1.x && dude.y == monster1.y) {
+            
+            if (dude.x + dude.width >= monster1.x && dude.x <= monster1.x + monster1.width && dude.y + dude.height >= monster1.y) {
                 done = true;
-            }       
+            }
+            if (dude.x + dude.width >= monster2.x && dude.x <= monster2.x + monster2.width && dude.y + dude.height >= monster2.y) {
+                done = true;
+            } 
+            if (dude.x + dude.width >= monster3.x && dude.x <= monster3.x + monster3.width && dude.y + dude.height >= monster3.y) {
+                done = true;
+            } 
+            if (dude.x + dude.width >= monster4.x && dude.x <= monster4.x + monster4.width && dude.y + dude.height >= monster4.y) {
+                done = true;
+            } 
+           if (dude.x + dude.width >= monster5.x && dude.x <= monster5.x + monster5.width && dude.y + dude.height >= monster5.y) {
+                done = true;
+            }
+            if (dude.x + dude.width >= monster6.x && dude.x <= monster6.x + monster6.width && dude.y + dude.height >= monster6.y) {
+                done = true;
+            } 
+            if (dude.x + dude.width >= monster7.x && dude.x <= monster7.x + monster7.width && dude.y + dude.height >= monster7.y) {
+                done = true;
+            } 
+            if (dude.x + dude.width >= monster8.x && dude.x <= monster8.x + monster8.width && dude.y + dude.height >= monster8.y) {
+                done = true;
+            }
+            if (dude.x + dude.width >= monster9.x && dude.x <= monster9.x + monster9.width && dude.y + dude.height >= monster9.y) {
+                done = true;
+            }
+            if (dude.x + dude.width >= monster10.x && dude.x <= monster10.x + monster10.width && dude.y + dude.height >= monster10.y) {
+                done = true;
+            } 
+            if (dude.x + dude.width >= monster11.x && dude.x <= monster11.x + monster11.width && dude.y + dude.height >= monster11.y) {
+                done = true;
+            } 
+            if (dude.x + dude.width >= monster12.x && dude.x <= monster12.x + monster12.width && dude.y + dude.height >= monster12.y) {
+                done = true;
+            } 
+           if (dude.x + dude.width >= monster13.x && dude.x <= monster13.x + monster13.width && dude.y + dude.height >= monster13.y) {
+                done = true;
+            }
+            if (dude.x + dude.width >= monster14.x && dude.x <= monster14.x + monster14.width && dude.y + dude.height >= monster14.y) {
+                done = true;
+            } 
+            if (dude.x + dude.width >= monster15.x && dude.x <= monster15.x + monster15.width && dude.y + dude.height >= monster15.y) {
+                done = true;
+            } 
+            if (dude.x + dude.width >= monster16.x && dude.x <= monster16.x + monster16.width && dude.y + dude.height >= monster16.y) {
+                done = true;
+            }
                         
+            //reset game on loss
+            
+                
+            
             
             
             
@@ -264,6 +343,7 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
             
             if(dude.y < 400){
                 dude.y = dude.y + gravity;
+                jump = false;
             }
             
             //change y coordinates for jump
@@ -316,6 +396,7 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
             }catch(Exception e){};
         }
     }
+
 
 
 
