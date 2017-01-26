@@ -3,6 +3,7 @@ package pkgfinal.project;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
@@ -66,6 +67,10 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
     boolean start = false;
     boolean restart = false;
     
+    //scoring
+    
+    int totalScore = 0;
+    Font scoreFont = new Font("Arial", Font.BOLD, 52);
     
     //movement variables
     
@@ -141,44 +146,17 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
         //create player
         g.setColor(skin);
         g.fillRect(dude.x, dude.y, dude.width, dude.height); 
+        
+        //draw score
+        g.setColor(Color.WHITE);
+        g.setFont(scoreFont);
+        g.drawString("" + totalScore, 20, 580);
+        
         // GAME DRAWING ENDS HERE
     
     
     }
-    public void reset(){ 
     
-        if(restart){
-            
-            //reset dude position
-            
-            dude = new Rectangle(150, 400, 50, 50);
-            
-            //reset monsters
-            
-            Rectangle monster1 = new Rectangle(1000, 370, 80, 80);
-            monster2 = new Rectangle(1500, 330, 100, 120);
-            monster3 = new Rectangle(2100, 370, 50, 80);
-            monster4 = new Rectangle(2500, 390, 100, 60);
-            monster5 = new Rectangle(3600, 375, 80, 75);
-            monster6 = new Rectangle(4200, 350, 120, 100);
-            monster7 = new Rectangle(4800, 340, 150, 110);
-            monster8 = new Rectangle(5500, 390, 20, 60);
-            monster9 = new Rectangle(6000, 330, 180, 120);
-            monster10 = new Rectangle(6400, 380, 100, 70);
-            monster11 = new Rectangle(6800, 370, 100, 80);
-            monster12 = new Rectangle(7100, 360, 80, 90);
-            monster13 = new Rectangle(7600, 350, 80, 100);
-            monster14 = new Rectangle(8000, 410, 100, 40);
-            monster15 = new Rectangle(8250, 310, 150, 140);
-            monster16 = new Rectangle(8750, 390, 80, 60);
-            
-            
-            
-            
-        }
-        
-        
-        }
     
     // The main game loop
     // In here is where all the logic for my game will go
@@ -198,9 +176,8 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
         // the main game loop section
         // game will end if you set done = false;
         boolean done = false;
-        if(done){
-            restart = true;
-        }
+        //reset game
+        
         while(!done){
 
             // determines when we started so we can keep a framerate
@@ -330,8 +307,56 @@ public class FinalProjectGurveerShienh extends JComponent implements KeyListener
                 done = true;
             }
                         
-            //reset game on loss
+            //scoring
             
+            if(dude.x >= monster1.x + monster1.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster2.x + monster2.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster3.x + monster3.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster4.x + monster4.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster5.x + monster5.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster6.x + monster6.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster7.x + monster7.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster8.x + monster8.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster9.x + monster9.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster10.x + monster10.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster11.x + monster11.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster12.x + monster12.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster13.x + monster13.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster14.x + monster14.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster15.x + monster15.width){
+                totalScore = totalScore + 1;
+            }
+            if(dude.x >= monster16.x + monster16.width){
+                totalScore = totalScore + 1;
+            }
                 
             
             
